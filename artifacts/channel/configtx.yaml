@@ -526,14 +526,14 @@ Profiles:
                   Port: 7050
                   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
                   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
-                # - Host: orderer2.geologi.esdm.go.id
-                #   Port: 8050
-                #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
-                #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
-                # - Host: orderer3.geologi.esdm.go.id
-                #   Port: 9050
-                #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
-                #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+                - Host: orderer2.geologi.esdm.go.id
+                  Port: 8050
+                  ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+                - Host: orderer3.geologi.esdm.go.id
+                  Port: 9050
+                  ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
                 # - Host: orderer4.example.com
                 #   Port: 10050
                 #   ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
@@ -544,8 +544,8 @@ Profiles:
                 #   ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/tls/server.crt
             Addresses:
                 - orderer1.geologi.esdm.go.id:7050
-                # - orderer2.geologi.esdm.go.id:8050
-                # - orderer3.geologi.esdm.go.id:9050
+                - orderer2.geologi.esdm.go.id:8050
+                - orderer3.geologi.esdm.go.id:9050
                 # - orderer4.example.com:10050
                 # - orderer5.example.com:11050
 
