@@ -1,0 +1,563 @@
+################################################################################
+#
+#   Section: Organizations
+#
+#   - This section defines the different organizational identities which will
+#   be referenced later in the configuration.
+#
+################################################################################
+Organizations:
+
+    # SampleOrg defines an MSP using the sampleconfig.  It should never be used
+    # in production but may be used as a template for other definitions
+    - &OrdererOrg
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: OrdererOrg
+
+        # ID to load the MSP definition as
+        ID: OrdererMSP
+
+        # MSPDir is the filesystem path which contains the MSP configuration
+        MSPDir: crypto-config/ordererOrganizations/geologi.esdm.go.id/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('OrdererMSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('OrdererMSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('OrdererMSP.admin')"
+
+    - &Geologi
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: GeologiMSP
+
+        # ID to load the MSP definition as
+        ID: GeologiMSP
+
+        MSPDir: crypto-config/peerOrganizations/geologi.esdm.go.id/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('GeologiMSP.admin', 'GeologiMSP.peer', 'GeologiMSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('GeologiMSP.admin', 'GeologiMSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('GeologiMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('GeologiMSP.peer')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.geologi.esdm.go.id
+              Port: 7051
+
+    - &Minerba
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: MinerbaMSP
+
+        # ID to load the MSP definition as
+        ID: MinerbaMSP
+
+        MSPDir: crypto-config/peerOrganizations/minerba.esdm.go.id/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('MinerbaMSP.admin', 'MinerbaMSP.peer', 'MinerbaMSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('MinerbaMSP.admin', 'MinerbaMSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('MinerbaMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('MinerbaMSP.peer')"
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.minerba.esdm.go.id
+              Port: 8051
+
+    - &BadanUsaha1
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: BadanUsaha1MSP
+
+        # ID to load the MSP definition as
+        ID: BadanUsaha1MSP
+
+        MSPDir: crypto-config/peerOrganizations/bu1.example.com/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('BadanUsaha1MSP.admin', 'BadanUsaha1MSP.peer', 'BadanUsaha1MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('BadanUsaha1MSP.admin', 'BadanUsaha1MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('BadanUsaha1MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('BadanUsaha1MSP.peer')"
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.bu1.example.com
+              Port: 9051
+
+    - &BadanUsaha2
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: BadanUsaha2MSP
+
+        # ID to load the MSP definition as
+        ID: BadanUsaha2MSP
+
+        MSPDir: crypto-config/peerOrganizations/bu2.example.com/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('BadanUsaha2MSP.admin', 'BadanUsaha2MSP.peer', 'BadanUsaha2MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('BadanUsaha2MSP.admin', 'BadanUsaha2MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('BadanUsaha2MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('BadanUsaha2MSP.peer')"
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.bu2.example.com
+              Port: 10051
+
+    - &ThirdParty
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: ThirdPartyMSP
+
+        # ID to load the MSP definition as
+        ID: ThirdPartyMSP
+
+        MSPDir: crypto-config/peerOrganizations/thirdparty.example.com/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('ThirdPartyMSP.admin', 'ThirdPartyMSP.peer', 'ThirdPartyMSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('ThirdPartyMSP.admin', 'ThirdPartyMSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('ThirdPartyMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('ThirdPartyMSP.peer')"
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.thirdparty.example.com
+              Port: 11051
+
+################################################################################
+#
+#   SECTION: Capabilities
+#
+#   - This section defines the capabilities of fabric network. This is a new
+#   concept as of v1.1.0 and should not be utilized in mixed networks with
+#   v1.0.x peers and orderers.  Capabilities define features which must be
+#   present in a fabric binary for that binary to safely participate in the
+#   fabric network.  For instance, if a new MSP type is added, newer binaries
+#   might recognize and validate the signatures from this type, while older
+#   binaries without this support would be unable to validate those
+#   transactions.  This could lead to different versions of the fabric binaries
+#   having different world states.  Instead, defining a capability for a channel
+#   informs those binaries without this capability that they must cease
+#   processing transactions until they have been upgraded.  For v1.0.x if any
+#   capabilities are defined (including a map with all capabilities turned off)
+#   then the v1.0.x peer will deliberately crash.
+#
+################################################################################
+Capabilities:
+    # Channel capabilities apply to both the orderers and the peers and must be
+    # supported by both.
+    # Set the value of the capability to true to require it.
+    Channel: &ChannelCapabilities
+        # V2_0 capability ensures that orderers and peers behave according
+        # to v2.0 channel capabilities. Orderers and peers from
+        # prior releases would behave in an incompatible way, and are therefore
+        # not able to participate in channels at v2.0 capability.
+        # Prior to enabling V2.0 channel capabilities, ensure that all
+        # orderers and peers on a channel are at v2.0.0 or later.
+        V2_0: true
+
+    # Orderer capabilities apply only to the orderers, and may be safely
+    # used with prior release peers.
+    # Set the value of the capability to true to require it.
+    Orderer: &OrdererCapabilities
+        # V2_0 orderer capability ensures that orderers behave according
+        # to v2.0 orderer capabilities. Orderers from
+        # prior releases would behave in an incompatible way, and are therefore
+        # not able to participate in channels at v2.0 orderer capability.
+        # Prior to enabling V2.0 orderer capabilities, ensure that all
+        # orderers on channel are at v2.0.0 or later.
+        V2_0: true
+
+    # Application capabilities apply only to the peer network, and may be safely
+    # used with prior release orderers.
+    # Set the value of the capability to true to require it.
+    Application: &ApplicationCapabilities
+        # V2_0 application capability ensures that peers behave according
+        # to v2.0 application capabilities. Peers from
+        # prior releases would behave in an incompatible way, and are therefore
+        # not able to participate in channels at v2.0 application capability.
+        # Prior to enabling V2.0 application capabilities, ensure that all
+        # peers on channel are at v2.0.0 or later.
+        V2_0: true
+
+################################################################################
+#
+#   SECTION: Application
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for application related parameters
+#
+################################################################################
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network
+    Organizations:
+
+    # Policies defines the set of policies at this level of the config tree
+    # For Application policies, their canonical path is
+    #   /Channel/Application/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        LifecycleEndorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+        Endorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+
+    Capabilities:
+        <<: *ApplicationCapabilities
+################################################################################
+#
+#   SECTION: Orderer
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for orderer related parameters
+#
+################################################################################
+Orderer: &OrdererDefaults
+
+    # Orderer Type: The orderer implementation to start.
+    # Available types are "solo", "kafka" and "etcdraft".
+    OrdererType: etcdraft
+
+    EtcdRaft:
+        Consenters:
+        - Host: orderer1.geologi.esdm.go.id
+          Port: 7050
+          ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
+          ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
+        # - Host: orderer2.geologi.esdm.go.id
+        #   Port: 8050
+        #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+        #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+        # - Host: orderer3.geologi.esdm.go.id
+        #   Port: 9050
+        #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+        #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+
+    Addresses:
+        - orderer1.geologi.esdm.go.id:7050
+        # - orderer2.geologi.esdm.go.id:8050
+        # - orderer3.geologi.esdm.go.id:9050
+    # # Addresses used to be the list of orderer addresses that clients and peers
+    # # could connect to.  However, this does not allow clients to associate orderer
+    # # addresses and orderer organizations which can be useful for things such
+    # # as TLS validation.  The preferred way to specify orderer addresses is now
+    # # to include the OrdererEndpoints item in your org definition
+    # Addresses:
+    #     # - 127.0.0.1:7050
+
+    # Batch Timeout: The amount of time to wait before creating a batch.
+    BatchTimeout: 2s
+
+    # Batch Size: Controls the number of messages batched into a block.
+    # The orderer views messages opaquely, but typically, messages may
+    # be considered to be Fabric transactions.  The 'batch' is the group
+    # of messages in the 'data' field of the block.  Blocks will be a few kb
+    # larger than the batch size, when signatures, hashes, and other metadata
+    # is applied.
+    BatchSize:
+
+        # Max Message Count: The maximum number of messages to permit in a
+        # batch.  No block will contain more than this number of messages.
+        MaxMessageCount: 10
+
+        # Absolute Max Bytes: The absolute maximum number of bytes allowed for
+        # the serialized messages in a batch. The maximum block size is this value
+        # plus the size of the associated metadata (usually a few KB depending
+        # upon the size of the signing identities). Any transaction larger than
+        # this value will be rejected by ordering.
+        # It is recommended not to exceed 49 MB, given the default grpc max message size of 100 MB
+        # configured on orderer and peer nodes (and allowing for message expansion during communication).
+        AbsoluteMaxBytes: 99 MB
+
+        # Preferred Max Bytes: The preferred maximum number of bytes allowed
+        # for the serialized messages in a batch. Roughly, this field may be considered
+        # the best effort maximum size of a batch. A batch will fill with messages
+        # until this size is reached (or the max message count, or batch timeout is
+        # exceeded).  If adding a new message to the batch would cause the batch to
+        # exceed the preferred max bytes, then the current batch is closed and written
+        # to a block, and a new batch containing the new message is created.  If a
+        # message larger than the preferred max bytes is received, then its batch
+        # will contain only that message.  Because messages may be larger than
+        # preferred max bytes (up to AbsoluteMaxBytes), some batches may exceed
+        # the preferred max bytes, but will always contain exactly one transaction.
+        PreferredMaxBytes: 512 KB
+
+    # # Max Channels is the maximum number of channels to allow on the ordering
+    # # network. When set to 0, this implies no maximum number of channels.
+    # MaxChannels: 0
+
+    # # EtcdRaft defines configuration which must be set when the "etcdraft"
+    # # orderertype is chosen.
+    # EtcdRaft:
+    #     # The set of Raft replicas for this network. For the etcd/raft-based
+    #     # implementation, we expect every replica to also be an OSN. Therefore,
+    #     # a subset of the host:port items enumerated in this list should be
+    #     # replicated under the Orderer.Addresses key above.
+    #     Consenters:
+    #         - Host: orderer1.geologi.esdm.go.id
+    #           Port: 7050
+    #           ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
+    #           ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
+    #         # - Host: orderer2.geologi.esdm.go.id
+    #         #   Port: 8050
+    #         #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+    #         #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+    #         # - Host: orderer3.geologi.esdm.go.id
+    #         #   Port: 9050
+    #         #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+    #         #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+
+    #     # Options to be specified for all the etcd/raft nodes. The values here
+    #     # are the defaults for all new channels and can be modified on a
+    #     # per-channel basis via configuration updates.
+    #     Options:
+    #         # TickInterval is the time interval between two Node.Tick invocations.
+    #         TickInterval: 500ms
+
+    #         # ElectionTick is the number of Node.Tick invocations that must pass
+    #         # between elections. That is, if a follower does not receive any
+    #         # message from the leader of current term before ElectionTick has
+    #         # elapsed, it will become candidate and start an election.
+    #         # ElectionTick must be greater than HeartbeatTick.
+    #         ElectionTick: 10
+
+    #         # HeartbeatTick is the number of Node.Tick invocations that must
+    #         # pass between heartbeats. That is, a leader sends heartbeat
+    #         # messages to maintain its leadership every HeartbeatTick ticks.
+    #         HeartbeatTick: 1
+
+    #         # MaxInflightBlocks limits the max number of in-flight append messages
+    #         # during optimistic replication phase.
+    #         MaxInflightBlocks: 5
+
+    #         # SnapshotIntervalSize defines number of bytes per which a snapshot is taken
+    #         SnapshotIntervalSize: 16 MB
+
+    # Organizations lists the orgs participating on the orderer side of the
+    # network.
+    Organizations:
+
+    # Policies defines the set of policies at this level of the config tree
+    # For Orderer policies, their canonical path is
+    #   /Channel/Orderer/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        # BlockValidation specifies what signatures must be included in the block
+        # from the orderer for the peer to validate it.
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+
+    # # Capabilities describes the orderer level capabilities, see the
+    # # dedicated Capabilities section elsewhere in this file for a full
+    # # description
+    # Capabilities:
+    #     <<: *OrdererCapabilities
+
+
+################################################################################
+#
+#   CHANNEL
+#
+#   This section defines the values to encode into a config transaction or
+#   genesis block for channel related parameters.
+#
+################################################################################
+Channel: &ChannelDefaults
+    # Policies defines the set of policies at this level of the config tree
+    # For Channel policies, their canonical path is
+    #   /Channel/<PolicyName>
+    Policies:
+        # Who may invoke the 'Deliver' API
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        # Who may invoke the 'Broadcast' API
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        # By default, who may modify elements at this config level
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+
+    # Capabilities describes the channel level capabilities, see the
+    # dedicated Capabilities section elsewhere in this file for a full
+    # description
+    Capabilities:
+        <<: *ChannelCapabilities
+
+################################################################################
+#
+#   Profile
+#
+#   - Different configuration profiles may be encoded here to be specified
+#   as parameters to the configtxgen tool
+#
+################################################################################
+Profiles:
+
+    BasicChannel:
+        Consortium: SampleConsortium
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Geologi
+                - *Minerba
+                - *BadanUsaha1
+                - *BadanUsaha2
+                - *ThirdParty
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+    OrdererGenesis:
+        <<: *ChannelDefaults
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            OrdererType: etcdraft
+            EtcdRaft:
+                Consenters:
+                - Host: orderer1.geologi.esdm.go.id
+                  Port: 7050
+                  ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
+                # - Host: orderer2.geologi.esdm.go.id
+                #   Port: 8050
+                #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+                #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
+                # - Host: orderer3.geologi.esdm.go.id
+                #   Port: 9050
+                #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+                #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+                # - Host: orderer4.example.com
+                #   Port: 10050
+                #   ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
+                #   ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls/server.crt
+                # - Host: orderer5.example.com
+                #   Port: 11050
+                #   ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/tls/server.crt
+                #   ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/tls/server.crt
+            Addresses:
+                - orderer1.geologi.esdm.go.id:7050
+                # - orderer2.geologi.esdm.go.id:8050
+                # - orderer3.geologi.esdm.go.id:9050
+                # - orderer4.example.com:10050
+                # - orderer5.example.com:11050
+
+            Organizations:
+            - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                - *Geologi
+                - *Minerba
+                - *BadanUsaha1
+                - *BadanUsaha2
+                - *ThirdParty

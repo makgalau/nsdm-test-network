@@ -1,0 +1,6 @@
+artifacts/src/nsdm_cc/node_modules/
+bin/
+builders/
+config/
+artifacts/channel/*.block
+artifacts/channel/*.tx

@@ -1,0 +1,111 @@
+
+OrdererOrgs:
+  # ---------------------------------------------------------------------------
+  # Orderer
+  # ---------------------------------------------------------------------------
+  - Name: Orderer
+    Domain: geologi.esdm.go.id
+    EnableNodeOUs: true
+
+    # ---------------------------------------------------------------------------
+    # "Specs" - See PeerOrgs below for complete description
+    # ---------------------------------------------------------------------------
+    Specs:
+      - Hostname: orderer1
+        SANS:
+            - "localhost"
+      # - Hostname: orderer2
+      #   SANS:
+      #     - "localhost"
+      # - Hostname: orderer3
+      #   SANS:
+      #       - "localhost"
+
+# ---------------------------------------------------------------------------
+# "PeerOrgs" - Definition of organizations managing peer nodes
+# ---------------------------------------------------------------------------
+PeerOrgs:
+  # ---------------------------------------------------------------------------
+  # Org1 - Geologi
+  # ---------------------------------------------------------------------------
+  - Name: Geologi
+    Domain: geologi.esdm.go.id
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+
+  # ---------------------------------------------------------------------------
+  # Org2 - Minerba
+  # ---------------------------------------------------------------------------
+  - Name: Minerba
+    Domain: minerba.esdm.go.id
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+    
+  # ---------------------------------------------------------------------------
+  # Org3 - BadanUsaha1
+  # ---------------------------------------------------------------------------
+  - Name: BadanUsaha1
+    Domain: bu1.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 1
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+
+  # ---------------------------------------------------------------------------
+  # Org4 - BadanUsaha2
+  # ---------------------------------------------------------------------------
+  - Name: BadanUsaha2
+    Domain: bu2.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 1
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+
+  # ---------------------------------------------------------------------------
+  # Org5 - ThirdParty
+  # ---------------------------------------------------------------------------
+  - Name: ThirdParty
+    Domain: thirdparty.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 1
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1  
