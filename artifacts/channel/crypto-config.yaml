@@ -13,13 +13,23 @@ OrdererOrgs:
       - Hostname: orderer1
         SANS:
             - "localhost"
+  # ---------------------------------------------------------------------------
+  # Orderer
+  # ---------------------------------------------------------------------------
+  - Name: OrdererMin
+    Domain: minerba.esdm.go.id
+    EnableNodeOUs: true
+
+    # ---------------------------------------------------------------------------
+    # "Specs" - See PeerOrgs below for complete description
+    # ---------------------------------------------------------------------------
+    Specs:
       - Hostname: orderer2
         SANS:
-          - "localhost"
+            - "localhost"
       - Hostname: orderer3
         SANS:
-            - "localhost"
-
+          - "localhost"
 # ---------------------------------------------------------------------------
 # "PeerOrgs" - Definition of organizations managing peer nodes
 # ---------------------------------------------------------------------------

@@ -119,7 +119,7 @@ services:
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
-      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPID=OrdererGeoMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       - ORDERER_GENERAL_TLS_ENABLED=true
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
@@ -144,8 +144,8 @@ services:
       - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/msp:/var/hyperledger/orderer/msp
       - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls:/var/hyperledger/orderer/tls
 
-  orderer2.geologi.esdm.go.id:
-    container_name: orderer2.geologi.esdm.go.id
+  orderer2.minerba.esdm.go.id:
+    container_name: orderer2.minerba.esdm.go.id
     image: hyperledger/fabric-orderer:2.4.9
     dns_search: .
     environment:
@@ -154,7 +154,7 @@ services:
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
-      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMinMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       - ORDERER_GENERAL_TLS_ENABLED=true
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
@@ -176,11 +176,11 @@ services:
       - test
     volumes:
       - ./channel/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/msp:/var/hyperledger/orderer/msp
-      - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls:/var/hyperledger/orderer/tls
+      - ./channel/crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer2.minerba.esdm.go.id/msp:/var/hyperledger/orderer/msp
+      - ./channel/crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer2.minerba.esdm.go.id/tls:/var/hyperledger/orderer/tls
 
-  orderer3.geologi.esdm.go.id:
-    container_name: orderer3.geologi.esdm.go.id
+  orderer3.minerba.esdm.go.id:
+    container_name: orderer3.minerba.esdm.go.id
     image: hyperledger/fabric-orderer:2.4.9
     dns_search: .
     environment:
@@ -189,7 +189,7 @@ services:
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
-      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMinMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       - ORDERER_GENERAL_TLS_ENABLED=true
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
@@ -211,8 +211,8 @@ services:
       - test
     volumes:
       - ./channel/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/msp:/var/hyperledger/orderer/msp
-      - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls:/var/hyperledger/orderer/tls
+      - ./channel/crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer3.minerba.esdm.go.id/msp:/var/hyperledger/orderer/msp
+      - ./channel/crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer3.minerba.esdm.go.id/tls:/var/hyperledger/orderer/tls
 
   couchdb0:
     container_name: couchdb0
