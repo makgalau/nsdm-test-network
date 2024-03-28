@@ -320,6 +320,7 @@ Application: &ApplicationDefaults
         Endorsement:
             Type: ImplicitMeta
             Rule: "MAJORITY Endorsement"
+            
 
     Capabilities:
         <<: *ApplicationCapabilities

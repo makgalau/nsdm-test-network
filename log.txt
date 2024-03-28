@@ -1,0 +1,2 @@
+Installed chaincodes on peer:
+Package ID: nsdm_cc_1:910c0c279cb7102491e393ce044d9dcd29019115bc05711c565788e3ca21d135, Label: nsdm_cc_1
