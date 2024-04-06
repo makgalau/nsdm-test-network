@@ -149,8 +149,8 @@ services:
     image: hyperledger/fabric-orderer:2.4.9
     dns_search: .
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=debug
-      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=info
+      - FABRIC_LOGGING_SPEC=info
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
@@ -184,8 +184,8 @@ services:
     image: hyperledger/fabric-orderer:2.4.9
     dns_search: .
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=debug
-      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=info
+      - FABRIC_LOGGING_SPEC=info
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
@@ -324,8 +324,8 @@ services:
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
-    # depends_on:
-    #   - couchdb0
+    depends_on:
+      - couchdb0
     ports:
       - 7051:7051
     volumes:
