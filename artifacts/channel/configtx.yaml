@@ -354,7 +354,8 @@ Orderer: &OrdererDefaults
         #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
 
     Addresses:
-        - orderer1.geologi.esdm.go.id:7050
+        # - orderer1.geologi.esdm.go.id:7050
+        - 127.0.0.1:7050
         # - orderer2.geologi.esdm.go.id:8050
         # - orderer3.geologi.esdm.go.id:9050
     # # Addresses used to be the list of orderer addresses that clients and peers
@@ -366,7 +367,7 @@ Orderer: &OrdererDefaults
     #     # - 127.0.0.1:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch.
-    BatchTimeout: 2s
+    BatchTimeout: 3s
 
     # Batch Size: Controls the number of messages batched into a block.
     # The orderer views messages opaquely, but typically, messages may
@@ -572,6 +573,9 @@ Profiles:
                 - orderer1.geologi.esdm.go.id:7050
                 - orderer2.minerba.esdm.go.id:8050
                 - orderer3.minerba.esdm.go.id:9050
+                - localhost:7050
+                - localhost:8050
+                - localhost:9050
                 # - orderer4.example.com:10050
                 # - orderer5.example.com:11050
 

@@ -44,12 +44,11 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         const contract = network.getContract(chaincodeName);
         let result;
 
-        if (fcn == "queryCar" || fcn =="queryCarsByOwner" || fcn == 'getHistoryForAsset' || fcn=='restictedMethod') {
+        if (fcn == "ReadAsset" || fcn =="GetAssetHistory" || fcn =="getAssetTimestamp") {
             result = await contract.evaluateTransaction(fcn, args[0]);
 
-        } else if (fcn == "readPrivateCar" || fcn == "queryPrivateDataHash"
-        || fcn == "collectionCarPrivateDetails") {
-            result = await contract.evaluateTransaction(fcn, args[0], args[1]);
+        } else if (fcn == "GetAllAssets" || fcn == "GetNumOfAssets"){
+            result = await contract.evaluateTransaction(fcn);
             // return result
 
         }

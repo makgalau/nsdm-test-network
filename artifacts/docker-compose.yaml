@@ -115,10 +115,10 @@ services:
     dns_search: .
     environment:
       - ORDERER_GENERAL_LOGLEVEL=info
-      - FABRIC_LOGGING_SPEC=INFO
+      - FABRIC_LOGGING_SPEC=info
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererGeoMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       - ORDERER_GENERAL_TLS_ENABLED=true
@@ -136,11 +136,11 @@ services:
     command: orderer
     ports:
       - 7050:7050
-      - 8443:8443
+      - 8446:8443
     networks:
       - test
     volumes:
-      - ./channel/genesis.block:/var/hyperledger/orderer/genesis.block
+      - ./channel/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/msp:/var/hyperledger/orderer/msp
       - ./channel/crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls:/var/hyperledger/orderer/tls
 
@@ -481,7 +481,7 @@ services:
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
       # Exposed for discovery Service
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bu1.example.com:9051
-      # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.geologi.esdm.go.id:7051   #harus dengan yang seorganisasi
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bu1.example.com:9051 ##  #harus dengan yang seorganisasi
 
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb4:5984
@@ -523,7 +523,7 @@ services:
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
       # Exposed for discovery Service
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bu2.example.com:10051
-      # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.geologi.esdm.go.id:7051   #harus dengan yang seorganisasi
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bu2.example.com:10051  ##   #harus dengan yang seorganisasi
 
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb5:5984
@@ -565,7 +565,7 @@ services:
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:11052
       # Exposed for discovery Service
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.thirdparty.example.com:11051
-      # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.geologi.esdm.go.id:7051   #harus dengan yang seorganisasi
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.thirdparty.example.com:11051   ##  #harus dengan yang seorganisasi
 
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb6:5984
