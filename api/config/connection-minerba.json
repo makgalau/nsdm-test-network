@@ -1,0 +1,62 @@
+{
+    "name": "first-network-minerba",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Minerba",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Minerba": {
+            "mspid": "MinerbaMSP",
+            "peers": [
+                "peer0.minerba.esdm.go.id",
+                "peer1.minerba.esdm.go.id"
+            ],
+            "certificateAuthorities": [
+                "ca.minerba.esdm.go.id"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.minerba.esdm.go.id": {
+            "url": "grpcs://localhost:8051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXzCCAgagAwIBAgIRAOrwwysYKR4mB9fTcgjrHyowCgYIKoZIzj0EAwIwejEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xGzAZBgNVBAoTEm1pbmVyYmEuZXNkbS5nby5pZDEhMB8GA1UEAxMY\ndGxzY2EubWluZXJiYS5lc2RtLmdvLmlkMB4XDTI0MDQxNjIxMjgwMFoXDTM0MDQx\nNDIxMjgwMFowejELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAU\nBgNVBAcTDVNhbiBGcmFuY2lzY28xGzAZBgNVBAoTEm1pbmVyYmEuZXNkbS5nby5p\nZDEhMB8GA1UEAxMYdGxzY2EubWluZXJiYS5lc2RtLmdvLmlkMFkwEwYHKoZIzj0C\nAQYIKoZIzj0DAQcDQgAEQBWSYzA9wiroXjW26j2ubiNaqfSZ88oH7/h6IH1AoAX5\nl+uVWysvqKm6fduf/Xe8XFf+uOvGeeTFqTACMODxt6NtMGswDgYDVR0PAQH/BAQD\nAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTAD\nAQH/MCkGA1UdDgQiBCB/oAcF6M3yrUWaXx2Bv9K7R4Rir1zeem3BIxCravWMhzAK\nBggqhkjOPQQDAgNHADBEAiAYnG2mzGS5RzzQrBDAEttSo6po5WAl2kDQPWhb8ARs\nBAIgcF0dBdQJcfp63UqXsAwgvIT9/QgOt0qPdO+QzdwnBik=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.minerba.esdm.go.id",
+                "hostnameOverride": "peer0.minerba.esdm.go.id"
+            }
+        },
+	"peer1.minerba.esdm.go.id": {
+            "url": "grpcs://localhost:8151",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXzCCAgagAwIBAgIRAOrwwysYKR4mB9fTcgjrHyowCgYIKoZIzj0EAwIwejEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xGzAZBgNVBAoTEm1pbmVyYmEuZXNkbS5nby5pZDEhMB8GA1UEAxMY\ndGxzY2EubWluZXJiYS5lc2RtLmdvLmlkMB4XDTI0MDQxNjIxMjgwMFoXDTM0MDQx\nNDIxMjgwMFowejELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAU\nBgNVBAcTDVNhbiBGcmFuY2lzY28xGzAZBgNVBAoTEm1pbmVyYmEuZXNkbS5nby5p\nZDEhMB8GA1UEAxMYdGxzY2EubWluZXJiYS5lc2RtLmdvLmlkMFkwEwYHKoZIzj0C\nAQYIKoZIzj0DAQcDQgAEQBWSYzA9wiroXjW26j2ubiNaqfSZ88oH7/h6IH1AoAX5\nl+uVWysvqKm6fduf/Xe8XFf+uOvGeeTFqTACMODxt6NtMGswDgYDVR0PAQH/BAQD\nAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTAD\nAQH/MCkGA1UdDgQiBCB/oAcF6M3yrUWaXx2Bv9K7R4Rir1zeem3BIxCravWMhzAK\nBggqhkjOPQQDAgNHADBEAiAYnG2mzGS5RzzQrBDAEttSo6po5WAl2kDQPWhb8ARs\nBAIgcF0dBdQJcfp63UqXsAwgvIT9/QgOt0qPdO+QzdwnBik=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.minerba.esdm.go.id",
+                "hostnameOverride": "peer1.minerba.esdm.go.id"
+            }
+        }
+
+	
+    },
+    "certificateAuthorities": {
+        "ca.minerba.esdm.go.id": {
+            "url": "https://localhost:8054",
+            "caName": "ca.minerba.esdm.go.id",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXzCCAgagAwIBAgIRAOrwwysYKR4mB9fTcgjrHyowCgYIKoZIzj0EAwIwejEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xGzAZBgNVBAoTEm1pbmVyYmEuZXNkbS5nby5pZDEhMB8GA1UEAxMY\ndGxzY2EubWluZXJiYS5lc2RtLmdvLmlkMB4XDTI0MDQxNjIxMjgwMFoXDTM0MDQx\nNDIxMjgwMFowejELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAU\nBgNVBAcTDVNhbiBGcmFuY2lzY28xGzAZBgNVBAoTEm1pbmVyYmEuZXNkbS5nby5p\nZDEhMB8GA1UEAxMYdGxzY2EubWluZXJiYS5lc2RtLmdvLmlkMFkwEwYHKoZIzj0C\nAQYIKoZIzj0DAQcDQgAEQBWSYzA9wiroXjW26j2ubiNaqfSZ88oH7/h6IH1AoAX5\nl+uVWysvqKm6fduf/Xe8XFf+uOvGeeTFqTACMODxt6NtMGswDgYDVR0PAQH/BAQD\nAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTAD\nAQH/MCkGA1UdDgQiBCB/oAcF6M3yrUWaXx2Bv9K7R4Rir1zeem3BIxCravWMhzAK\nBggqhkjOPQQDAgNHADBEAiAYnG2mzGS5RzzQrBDAEttSo6po5WAl2kDQPWhb8ARs\nBAIgcF0dBdQJcfp63UqXsAwgvIT9/QgOt0qPdO+QzdwnBik=\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

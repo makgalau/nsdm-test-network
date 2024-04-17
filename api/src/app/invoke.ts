@@ -23,20 +23,22 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
         console.log(`Wallet path: ${walletPath}`);
 
         // Check to see if we've already enrolled the user.
-        let identity = await wallet.get(username);
-        console.log(identity);
-        if (!identity) {
+        let myidentity = await wallet.get(username);
+        // console.log(myidentity);
+        if (!myidentity) {
             console.log(`An identity for the user ${username} does not exist in the wallet, so registering user`);
             await helper.getRegisteredUser(username, org_name, true)
-            identity = await wallet.get(username);
+            myidentity = await wallet.get(username);
             console.log('Run the registerUser.js application before retrying');
             return;
         }
 
         
-
+        console.log("tes0");
         const connectOptions = {
-            wallet, identity: username, discovery: { enabled: true, asLocalhost: true } //,  coba disable options dibawah
+            identity: username,
+            wallet: wallet,  
+            discovery: { enabled: true, asLocalhost: true } //,  coba disable options dibawah
             // eventHandlerOptions: {
             //     commitTimeout: 100,
             //     strategy: DefaultEventHandlerStrategies.NETWORK_SCOPE_ALLFORTX
@@ -45,19 +47,18 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
             //     strategy: createTransactionEventhandler()
             // }
         }
-
-        console.log("tes connectionOptions");
-        console.log(connectOptions);
+        console.log("tes1");
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        console.log(gateway);
+        console.log("tes2");
         await gateway.connect(ccp, connectOptions);         //error disini kyknya
         console.log("mencari error");
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork(channelName);
+        console.log("tes");
         console.log(network);
-        const contract = network.getContract(chaincodeName);
-        console.log(contract);
+        const contract = await network.getContract(chaincodeName);
+        // console.log(contract);
         let result
         let message;
         console.log("sampe sini")
@@ -68,6 +69,7 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
                 args[11],args[12],args[13],args[14],args[15],args[16],args[17],args[18],args[19],args[20],args[21],args[22],args[23],args[24],args[25],
                 args[26],args[27],args[28],args[29],args[30]);    
             message = `Successfully added/updated asset with IDLogam ${args[0]}`
+            console.log(result);
         } else if (fcn == "DeleteAsset"){
             result = await contract.submitTransaction(fcn, args[0])
             message = `Successfully deleted asset with IDLogam ${args[0]}`
@@ -75,9 +77,9 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
             message = "Error function is not recognized"
         }
         await gateway.disconnect();
-
-        result = JSON.parse(result.toString());
-
+        console.log(message);
+        // result = JSON.parse(result.toString());
+        // console.log(result);
         let response = {
             message: message,
             result

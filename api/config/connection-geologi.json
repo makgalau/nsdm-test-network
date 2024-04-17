@@ -1,0 +1,62 @@
+{
+    "name": "first-network-geologi",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Geologi",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Geologi": {
+            "mspid": "GeologiMSP",
+            "peers": [
+                "peer0.geologi.esdm.go.id",
+                "peer1.geologi.esdm.go.id"
+            ],
+            "certificateAuthorities": [
+                "ca.geologi.esdm.go.id"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.geologi.esdm.go.id": {
+            "url": "grpcs://localhost:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXzCCAgWgAwIBAgIQVFM1l01ssp/HCFu3xxFPJDAKBggqhkjOPQQDAjB6MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEbMBkGA1UEChMSZ2VvbG9naS5lc2RtLmdvLmlkMSEwHwYDVQQDExh0\nbHNjYS5nZW9sb2dpLmVzZG0uZ28uaWQwHhcNMjQwNDE2MjEyODAwWhcNMzQwNDE0\nMjEyODAwWjB6MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQG\nA1UEBxMNU2FuIEZyYW5jaXNjbzEbMBkGA1UEChMSZ2VvbG9naS5lc2RtLmdvLmlk\nMSEwHwYDVQQDExh0bHNjYS5nZW9sb2dpLmVzZG0uZ28uaWQwWTATBgcqhkjOPQIB\nBggqhkjOPQMBBwNCAATjQ6QkDhyPVns4kgdLEgY3Xk9NcCqsJmQ7DF6x/9RkAn2j\nGUkV6IMstHP93MlYWnwfVGtQL53BR5zbars6XU5No20wazAOBgNVHQ8BAf8EBAMC\nAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMB\nAf8wKQYDVR0OBCIEIExDSdhWX/Tp517lys78Bifr5nlIB/9tpXbmFId0iu7BMAoG\nCCqGSM49BAMCA0gAMEUCIFbpTbzWmIbgkXbV9vSSz99Z5TLhl4ha7aDoIQUd4F7h\nAiEAjwuVA3Na6SFm4PsVEzB8jPUVebuLWlFWPDEWwWBtafA=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.geologi.esdm.go.id",
+                "hostnameOverride": "peer0.geologi.esdm.go.id"
+            }
+        },
+	"peer1.geologi.esdm.go.id": {
+            "url": "grpcs://localhost:7151",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXzCCAgWgAwIBAgIQVFM1l01ssp/HCFu3xxFPJDAKBggqhkjOPQQDAjB6MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEbMBkGA1UEChMSZ2VvbG9naS5lc2RtLmdvLmlkMSEwHwYDVQQDExh0\nbHNjYS5nZW9sb2dpLmVzZG0uZ28uaWQwHhcNMjQwNDE2MjEyODAwWhcNMzQwNDE0\nMjEyODAwWjB6MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQG\nA1UEBxMNU2FuIEZyYW5jaXNjbzEbMBkGA1UEChMSZ2VvbG9naS5lc2RtLmdvLmlk\nMSEwHwYDVQQDExh0bHNjYS5nZW9sb2dpLmVzZG0uZ28uaWQwWTATBgcqhkjOPQIB\nBggqhkjOPQMBBwNCAATjQ6QkDhyPVns4kgdLEgY3Xk9NcCqsJmQ7DF6x/9RkAn2j\nGUkV6IMstHP93MlYWnwfVGtQL53BR5zbars6XU5No20wazAOBgNVHQ8BAf8EBAMC\nAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMB\nAf8wKQYDVR0OBCIEIExDSdhWX/Tp517lys78Bifr5nlIB/9tpXbmFId0iu7BMAoG\nCCqGSM49BAMCA0gAMEUCIFbpTbzWmIbgkXbV9vSSz99Z5TLhl4ha7aDoIQUd4F7h\nAiEAjwuVA3Na6SFm4PsVEzB8jPUVebuLWlFWPDEWwWBtafA=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.geologi.esdm.go.id",
+                "hostnameOverride": "peer1.geologi.esdm.go.id"
+            }
+        }
+
+	
+    },
+    "certificateAuthorities": {
+        "ca.geologi.esdm.go.id": {
+            "url": "https://localhost:7054",
+            "caName": "ca.geologi.esdm.go.id",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXzCCAgWgAwIBAgIQVFM1l01ssp/HCFu3xxFPJDAKBggqhkjOPQQDAjB6MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEbMBkGA1UEChMSZ2VvbG9naS5lc2RtLmdvLmlkMSEwHwYDVQQDExh0\nbHNjYS5nZW9sb2dpLmVzZG0uZ28uaWQwHhcNMjQwNDE2MjEyODAwWhcNMzQwNDE0\nMjEyODAwWjB6MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQG\nA1UEBxMNU2FuIEZyYW5jaXNjbzEbMBkGA1UEChMSZ2VvbG9naS5lc2RtLmdvLmlk\nMSEwHwYDVQQDExh0bHNjYS5nZW9sb2dpLmVzZG0uZ28uaWQwWTATBgcqhkjOPQIB\nBggqhkjOPQMBBwNCAATjQ6QkDhyPVns4kgdLEgY3Xk9NcCqsJmQ7DF6x/9RkAn2j\nGUkV6IMstHP93MlYWnwfVGtQL53BR5zbars6XU5No20wazAOBgNVHQ8BAf8EBAMC\nAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMB\nAf8wKQYDVR0OBCIEIExDSdhWX/Tp517lys78Bifr5nlIB/9tpXbmFId0iu7BMAoG\nCCqGSM49BAMCA0gAMEUCIFbpTbzWmIbgkXbV9vSSz99Z5TLhl4ha7aDoIQUd4F7h\nAiEAjwuVA3Na6SFm4PsVEzB8jPUVebuLWlFWPDEWwWBtafA=\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

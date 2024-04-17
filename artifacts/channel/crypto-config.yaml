@@ -2,7 +2,7 @@ OrdererOrgs:
   # ---------------------------------------------------------------------------
   # Orderer
   # ---------------------------------------------------------------------------
-  - Name: Orderer
+  - Name: OrdererGeoOrg
     Domain: geologi.esdm.go.id
     EnableNodeOUs: true
 
@@ -17,7 +17,7 @@ OrdererOrgs:
   # ---------------------------------------------------------------------------
   # Orderer
   # ---------------------------------------------------------------------------
-  - Name: OrdererMin
+  - Name: OrdererMinOrg
     Domain: minerba.esdm.go.id
     EnableNodeOUs: true
 

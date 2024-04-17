@@ -344,18 +344,20 @@ Orderer: &OrdererDefaults
           Port: 7050
           ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
           ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer1.geologi.esdm.go.id/tls/server.crt
-        # - Host: orderer2.geologi.esdm.go.id
-        #   Port: 8050
-        #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
-        #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer2.geologi.esdm.go.id/tls/server.crt
-        # - Host: orderer3.geologi.esdm.go.id
-        #   Port: 9050
-        #   ClientTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
-        #   ServerTLSCert: crypto-config/ordererOrganizations/geologi.esdm.go.id/orderers/orderer3.geologi.esdm.go.id/tls/server.crt
+        - Host: orderer2.minerba.esdm.go.id
+          Port: 8050
+          ClientTLSCert: crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer2.minerba.esdm.go.id/tls/server.crt
+          ServerTLSCert: crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer2.minerba.esdm.go.id/tls/server.crt
+        - Host: orderer3.minerba.esdm.go.id
+          Port: 9050
+          ClientTLSCert: crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer3.minerba.esdm.go.id/tls/server.crt
+          ServerTLSCert: crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer3.minerba.esdm.go.id/tls/server.crt
 
-    Addresses:
-        # - orderer1.geologi.esdm.go.id:7050
-        - 127.0.0.1:7050
+    # Addresses:
+    #     # - orderer1.geologi.esdm.go.id:7050
+    #     - 127.0.0.1:7050
+    #     - 127.0.0.1:8050
+    #     - 127.0.0.1:9050
         # - orderer2.geologi.esdm.go.id:8050
         # - orderer3.geologi.esdm.go.id:9050
     # # Addresses used to be the list of orderer addresses that clients and peers
@@ -367,7 +369,7 @@ Orderer: &OrdererDefaults
     #     # - 127.0.0.1:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch.
-    BatchTimeout: 3s
+    BatchTimeout: 2s
 
     # Batch Size: Controls the number of messages batched into a block.
     # The orderer views messages opaquely, but typically, messages may
@@ -477,11 +479,11 @@ Orderer: &OrdererDefaults
             Type: ImplicitMeta
             Rule: "ANY Writers"
 
-    # # Capabilities describes the orderer level capabilities, see the
-    # # dedicated Capabilities section elsewhere in this file for a full
-    # # description
-    # Capabilities:
-    #     <<: *OrdererCapabilities
+    # Capabilities describes the orderer level capabilities, see the
+    # dedicated Capabilities section elsewhere in this file for a full
+    # description
+    Capabilities:
+        <<: *OrdererCapabilities
 
 
 ################################################################################

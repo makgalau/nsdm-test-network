@@ -2,8 +2,5 @@ artifacts/src/nsdm_cc/node_modules/
 artifacts/src/nsdm_cc/dist
 bin/
 builders/
-config/
-artifacts/channel/*.block
-artifacts/channel/*.tx
 api/dist/
 api/node_modules/
