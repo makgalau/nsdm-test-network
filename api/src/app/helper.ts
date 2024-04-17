@@ -92,9 +92,9 @@ const getAffiliation = async (org: string) => {
     } else if (org == "Minerba") {
         return 'minerba.department1';
     } else if (org == "BadanUsaha1") {
-        return 'bu1.department1';
+        return 'badanusaha1.department1';
     } else if (org == "BadanUsaha2") {
-        return 'bu2.department1';
+        return 'badanusaha2.department1';
     } else {
         return 'thirdparty.department1';
     }

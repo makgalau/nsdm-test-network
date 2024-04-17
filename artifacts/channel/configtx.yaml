@@ -353,13 +353,14 @@ Orderer: &OrdererDefaults
           ClientTLSCert: crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer3.minerba.esdm.go.id/tls/server.crt
           ServerTLSCert: crypto-config/ordererOrganizations/minerba.esdm.go.id/orderers/orderer3.minerba.esdm.go.id/tls/server.crt
 
-    # Addresses:
-    #     # - orderer1.geologi.esdm.go.id:7050
-    #     - 127.0.0.1:7050
-    #     - 127.0.0.1:8050
-    #     - 127.0.0.1:9050
-        # - orderer2.geologi.esdm.go.id:8050
-        # - orderer3.geologi.esdm.go.id:9050
+    Addresses:
+        - orderer1.geologi.esdm.go.id:7050
+        - orderer2.minerba.esdm.go.id:8050
+        - orderer3.minerba.esdm.go.id:9050
+        # - 127.0.0.1:7050
+        # - 127.0.0.1:8050
+        # - 127.0.0.1:9050
+        
     # # Addresses used to be the list of orderer addresses that clients and peers
     # # could connect to.  However, this does not allow clients to associate orderer
     # # addresses and orderer organizations which can be useful for things such
@@ -459,7 +460,8 @@ Orderer: &OrdererDefaults
     # Organizations lists the orgs participating on the orderer side of the
     # network.
     Organizations:
-
+        - *OrdererGeoOrg
+        - *OrdererMinOrg
     # Policies defines the set of policies at this level of the config tree
     # For Orderer policies, their canonical path is
     #   /Channel/Orderer/<PolicyName>
@@ -575,9 +577,9 @@ Profiles:
                 - orderer1.geologi.esdm.go.id:7050
                 - orderer2.minerba.esdm.go.id:8050
                 - orderer3.minerba.esdm.go.id:9050
-                - localhost:7050
-                - localhost:8050
-                - localhost:9050
+                # - localhost:7050
+                # - localhost:8050
+                # - localhost:9050
                 # - orderer4.example.com:10050
                 # - orderer5.example.com:11050
 
@@ -594,3 +596,5 @@ Profiles:
                 - *BadanUsaha1
                 - *BadanUsaha2
                 - *ThirdParty
+                - *OrdererGeoOrg
+                - *OrdererMinOrg

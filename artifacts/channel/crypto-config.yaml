@@ -40,7 +40,7 @@ PeerOrgs:
   # ---------------------------------------------------------------------------
   # Org1 - Geologi
   # ---------------------------------------------------------------------------
-  - Name: Geologi
+  - Name: GeologiMSP
     Domain: geologi.esdm.go.id
     EnableNodeOUs: true
 
@@ -57,7 +57,7 @@ PeerOrgs:
   # ---------------------------------------------------------------------------
   # Org2 - Minerba
   # ---------------------------------------------------------------------------
-  - Name: Minerba
+  - Name: MinerbaMSP
     Domain: minerba.esdm.go.id
     EnableNodeOUs: true
 
@@ -74,7 +74,7 @@ PeerOrgs:
   # ---------------------------------------------------------------------------
   # Org3 - BadanUsaha1
   # ---------------------------------------------------------------------------
-  - Name: BadanUsaha1
+  - Name: BadanUsaha1MSP
     Domain: bu1.example.com
     EnableNodeOUs: true
 
@@ -91,7 +91,7 @@ PeerOrgs:
   # ---------------------------------------------------------------------------
   # Org4 - BadanUsaha2
   # ---------------------------------------------------------------------------
-  - Name: BadanUsaha2
+  - Name: BadanUsaha2MSP
     Domain: bu2.example.com
     EnableNodeOUs: true
 
@@ -108,7 +108,7 @@ PeerOrgs:
   # ---------------------------------------------------------------------------
   # Org5 - ThirdParty
   # ---------------------------------------------------------------------------
-  - Name: ThirdParty
+  - Name: ThirdPartyMSP
     Domain: thirdparty.example.com
     EnableNodeOUs: true
 
